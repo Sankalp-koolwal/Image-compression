@@ -1,0 +1,16 @@
+function[imf] = myCompression(I,N)
+cu(2:256) =1;
+cu(1)=1/sqrt(2);
+imf = zeros(256);
+for k = 1:256
+    for l=1:256
+        for i =1:N
+            for j=1:N
+                imf(k,l)=imf(k,l)+ (1/sqrt(2*N))*cu(k)*cu(l)*I(i,j)*cos((pi*2*(j-1)+1)*(k-1))/(2*N))*cos(pi*(2*(i-1)+1)*(l-1))/(2*N);
+            end
+        end
+    end
+end
+       
+
+
